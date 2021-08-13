@@ -21,7 +21,7 @@ class SplashContent extends StatelessWidget {
         Text(
           "UltraMerch",
           style: TextStyle(
-            fontSize: getProportionalWidth(36 * 2),
+            fontSize: getProportionalWidth(36 * 1),
             color: kPrimaryColor,
             fontWeight: FontWeight.bold,
           ),
@@ -31,12 +31,12 @@ class SplashContent extends StatelessWidget {
           textAlign: TextAlign.center,
         ),
         Spacer(
-          flex: 3,
+          flex: 2,
         ),
         Image.asset(
           image,
           height: getProportionalHeight(265),
-          width: getProportionalWidth(235 * 2.5),
+          width: getProportionalWidth(235 * 2),
         )
       ],
     );

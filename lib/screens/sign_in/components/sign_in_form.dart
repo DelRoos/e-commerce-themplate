@@ -2,6 +2,8 @@ import 'package:e_commerce/components/custom_surffix_icon.dart';
 import 'package:e_commerce/components/default_button.dart';
 import 'package:e_commerce/components/form_error_text.dart';
 import 'package:e_commerce/constants.dart';
+import 'package:e_commerce/screens/forget_password/forgot_password_screen.dart';
+import 'package:e_commerce/screens/login_success/login_success_sreen.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -48,10 +50,14 @@ class _SignFormState extends State<SignForm> {
                   }),
               Text("Remember me"),
               Spacer(),
-              Text(
-                "Forgot password",
-                style: TextStyle(
-                  decoration: TextDecoration.underline,
+              GestureDetector(
+                onTap: () => Navigator.popAndPushNamed(
+                    context, ForgotPasswordScreen.routeName),
+                child: Text(
+                  "Forgot password",
+                  style: TextStyle(
+                    decoration: TextDecoration.underline,
+                  ),
                 ),
               ),
             ],
@@ -64,6 +70,8 @@ class _SignFormState extends State<SignForm> {
               press: () {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
+                  Navigator.popAndPushNamed(
+                      context, LoginSuccessScreen.routeName);
                 }
               }),
         ],
@@ -77,12 +85,12 @@ class _SignFormState extends State<SignForm> {
       obscureText: true,
       keyboardType: TextInputType.emailAddress,
       onChanged: (value) {
-        if (value.isEmpty && !errors.contains(kPassNullError)) {
+        if (value.isNotEmpty && errors.contains(kPassNullError)) {
           setState(() {
             errors.remove(kPassNullError);
           });
           return null;
-        } else if (value.length < 8 && !errors.contains(kShortPassError)) {
+        } else if (!(value.length < 8) && errors.contains(kShortPassError)) {
           setState(() {
             errors.remove(kShortPassError);
           });
@@ -93,11 +101,12 @@ class _SignFormState extends State<SignForm> {
           setState(() {
             errors.add(kPassNullError);
           });
-          return null;
+          return "";
         } else if (value.length < 8 && !errors.contains(kShortPassError)) {
           setState(() {
             errors.add(kShortPassError);
           });
+          return "";
         }
       },
       decoration: InputDecoration(
@@ -115,13 +124,13 @@ class _SignFormState extends State<SignForm> {
     return TextFormField(
       onSaved: (value) => email = value!,
       onChanged: (value) {
-        if (value.isEmpty && !errors.contains(kEmailNullError)) {
+        if (value.isEmpty && errors.contains(kEmailNullError)) {
           setState(() {
             errors.remove(kEmailNullError);
           });
           return null;
-        } else if (!emailValidatorRegExp.hasMatch(value) &&
-            !errors.contains(kInvalidEmailError)) {
+        } else if (emailValidatorRegExp.hasMatch(value) &&
+            errors.contains(kInvalidEmailError)) {
           setState(() {
             errors.remove(kInvalidEmailError);
           });
@@ -133,12 +142,13 @@ class _SignFormState extends State<SignForm> {
           setState(() {
             errors.add(kEmailNullError);
           });
-          return null;
+          return "";
         } else if (!emailValidatorRegExp.hasMatch(value) &&
             !errors.contains(kInvalidEmailError)) {
           setState(() {
             errors.remove(kInvalidEmailError);
           });
+          return "";
         }
       },
       decoration: InputDecoration(

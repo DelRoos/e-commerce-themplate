@@ -1,5 +1,5 @@
+import 'package:e_commerce/components/no_account_text.dart';
 import 'package:e_commerce/components/social_card.dart';
-import 'package:e_commerce/constants.dart';
 import 'package:e_commerce/screens/sign_in/components/sign_in_form.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
@@ -61,24 +61,7 @@ class Body extends StatelessWidget {
                 SizedBox(
                   height: getProportionalWidth(20 + 10),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      "Don't have an account ?",
-                      style: TextStyle(
-                        fontSize: getProportionalWidth(16 * 2),
-                      ),
-                    ),
-                    Text(
-                      "Sign Up",
-                      style: TextStyle(
-                        fontSize: getProportionalWidth(16 * 2),
-                        color: kPrimaryColor,
-                      ),
-                    ),
-                  ],
-                ),
+                NoAccount(),
               ],
             ),
           ),
