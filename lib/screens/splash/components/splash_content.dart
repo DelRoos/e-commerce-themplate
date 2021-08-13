@@ -21,7 +21,7 @@ class SplashContent extends StatelessWidget {
         Text(
           "UltraMerch",
           style: TextStyle(
-            fontSize: getProportionalWidth(36 * 1),
+            fontSize: getProportionalWidth(36 * 1.5),
             color: kPrimaryColor,
             fontWeight: FontWeight.bold,
           ),

@@ -74,15 +74,14 @@ class _BodyState extends State<Body> {
                       children: List.generate(
                           splashData.length, (index) => buildDot(index: index)),
                     ),
-                    Spacer(
-                      flex: 3,
-                    ),
+                    Spacer(),
                     DefaultButton(
                       text: "Continue",
                       press: () {
                         Navigator.pushNamed(context, SignInScreen.routeName);
                       },
                     ),
+                    Spacer(),
                   ],
                 ),
               ),
