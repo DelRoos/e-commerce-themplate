@@ -20,6 +20,18 @@ class _SignFormState extends State<SignForm> {
   late String email, password;
   bool remember = false;
 
+  void addError(String error) {
+    setState(() {
+      errors.add(error);
+    });
+  }
+
+  void removeError(String error) {
+    setState(() {
+      errors.remove(error);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -86,26 +98,18 @@ class _SignFormState extends State<SignForm> {
       keyboardType: TextInputType.emailAddress,
       onChanged: (value) {
         if (value.isNotEmpty && errors.contains(kPassNullError)) {
-          setState(() {
-            errors.remove(kPassNullError);
-          });
+          removeError(kPassNullError);
           return null;
         } else if (!(value.length < 8) && errors.contains(kShortPassError)) {
-          setState(() {
-            errors.remove(kShortPassError);
-          });
+          removeError(kShortPassError);
         }
       },
       validator: (value) {
         if (value!.isEmpty && !errors.contains(kPassNullError)) {
-          setState(() {
-            errors.add(kPassNullError);
-          });
+          addError(kPassNullError);
           return "";
         } else if (value.length < 8 && !errors.contains(kShortPassError)) {
-          setState(() {
-            errors.add(kShortPassError);
-          });
+          addError(kShortPassError);
           return "";
         }
       },
@@ -125,29 +129,21 @@ class _SignFormState extends State<SignForm> {
       onSaved: (value) => email = value!,
       onChanged: (value) {
         if (value.isEmpty && errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.remove(kEmailNullError);
-          });
+          removeError(kEmailNullError);
           return null;
         } else if (emailValidatorRegExp.hasMatch(value) &&
             errors.contains(kInvalidEmailError)) {
-          setState(() {
-            errors.remove(kInvalidEmailError);
-          });
+          removeError(kInvalidEmailError);
         }
       },
       keyboardType: TextInputType.emailAddress,
       validator: (value) {
         if (value!.isEmpty && !errors.contains(kEmailNullError)) {
-          setState(() {
-            errors.add(kEmailNullError);
-          });
+          addError(kEmailNullError);
           return "";
         } else if (!emailValidatorRegExp.hasMatch(value) &&
             !errors.contains(kInvalidEmailError)) {
-          setState(() {
-            errors.remove(kInvalidEmailError);
-          });
+          addError(kInvalidEmailError);
           return "";
         }
       },
