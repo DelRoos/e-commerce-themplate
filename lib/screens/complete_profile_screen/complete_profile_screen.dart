@@ -1,3 +1,4 @@
+import 'package:e_commerce/screens/complete_profile_screen/components/body.dart';
 import 'package:flutter/material.dart';
 
 class CompleteProfileScreen extends StatelessWidget {
@@ -6,6 +7,11 @@ class CompleteProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Sign Up"),
+      ),
+      body: Body(),
+    );
   }
 }

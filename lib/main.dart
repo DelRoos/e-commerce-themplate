@@ -3,8 +3,6 @@ import 'package:e_commerce/screens/splash/splash_screen.dart';
 import 'package:e_commerce/theme.dart';
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
-
 void main() {
   runApp(MyApp());
 }

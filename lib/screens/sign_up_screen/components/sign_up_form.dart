@@ -5,6 +5,7 @@ import 'package:e_commerce/components/default_button.dart';
 import 'package:e_commerce/components/form_error_text.dart';
 import 'package:e_commerce/components/social_card.dart';
 import 'package:e_commerce/constants.dart';
+import 'package:e_commerce/screens/complete_profile_screen/complete_profile_screen.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
 
@@ -57,6 +58,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 if (_formkey.currentState!.validate()) {
                   // inspect(_formkey);
                   inspect(errors);
+                  Navigator.pushNamed(context, CompleteProfileScreen.routeName);
                 }
               },
             ),
