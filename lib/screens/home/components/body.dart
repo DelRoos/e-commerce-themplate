@@ -1,8 +1,15 @@
+import 'package:e_commerce/components/product_card.dart';
 import 'package:e_commerce/constants.dart';
-import 'package:e_commerce/screens/home/components/icon_btn_with_counter.dart';
+import 'package:e_commerce/models/Product.dart';
+import 'package:e_commerce/screens/home/components/category.dart';
+import 'package:e_commerce/screens/home/components/discount_banner.dart';
+import 'package:e_commerce/screens/home/components/home_header.dart';
+import 'package:e_commerce/screens/home/components/popular_products.dart';
+import 'package:e_commerce/screens/home/components/section_title.dart';
+import 'package:e_commerce/screens/home/components/special_offers.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -14,48 +21,25 @@ class Body extends StatelessWidget {
         child: Column(
           children: <Widget>[
             SizedBox(
-              height: getProportionalWidth(20),
+              height: getProportionalWidth(20 * 2),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: getProportionalHeight(20 * 2)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    width: SizeConfig.screenWidth * 0.5,
-                    height: 50,
-                    // color: Colors.black,
-                    decoration: BoxDecoration(
-                      color: kSecondaryColor.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: TextField(
-                      onChanged: (value) {},
-                      decoration: InputDecoration(
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        hintText: "Search product",
-                        prefixIcon: Icon(Icons.search),
-                        contentPadding: EdgeInsets.symmetric(
-                          horizontal: getProportionalWidth(20),
-                          vertical: getProportionalWidth(10 * 2),
-                        ),
-                      ),
-                    ),
-                  ),
-                  IconBtnWithCounter(
-                    press: () {},
-                    svgSrc: "assets/icons/Cart Icon.svg",
-                  ),
-                  IconBtnWithCounter(
-                    press: () {},
-                    svgSrc: "assets/icons/Bell.svg",
-                    numOfItem: 3,
-                  ),
-                ],
-              ),
+            HomeHeader(),
+            SizedBox(
+              height: getProportionalWidth(30 * 2),
             ),
+            DiscountBanner(),
+            SizedBox(
+              height: getProportionalWidth(30 * 2),
+            ),
+            Categories(),
+            SizedBox(
+              height: getProportionalWidth(30 * 2),
+            ),
+            SpecialOffers(),
+            SizedBox(
+              height: getProportionalWidth(30 * 2),
+            ),
+            PopularProducts(),
           ],
         ),
       ),
