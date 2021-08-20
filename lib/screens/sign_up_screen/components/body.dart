@@ -8,24 +8,26 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: getProportionalHeight(20)),
-        child: Column(children: <Widget>[
-          SizedBox(height: SizeConfig.screenHeight * 0.02),
-          Text(
-            "Register Account",
-            style: headingStyle,
-          ),
-          Text(
-            "Complete your details or continue \n with social media",
-            textAlign: TextAlign.center,
-          ),
-          SizedBox(height: SizeConfig.screenHeight * 0.05),
-          SignUpForm(),
-          SizedBox(height: SizeConfig.screenHeight * 0.03),
-        ]),
+    return SingleChildScrollView(
+      child: SizedBox(
+        width: double.infinity,
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: getProportionalHeight(20)),
+          child: Column(children: <Widget>[
+            SizedBox(height: SizeConfig.screenHeight * 0.02),
+            Text(
+              "Register Account",
+              style: headingStyle,
+            ),
+            Text(
+              "Complete your details or continue \n with social media",
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: SizeConfig.screenHeight * 0.05),
+            SignUpForm(),
+            SizedBox(height: SizeConfig.screenHeight * 0.03),
+          ]),
+        ),
       ),
     );
   }

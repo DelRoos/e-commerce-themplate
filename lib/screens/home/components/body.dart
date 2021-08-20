@@ -1,15 +1,10 @@
-import 'package:e_commerce/components/product_card.dart';
-import 'package:e_commerce/constants.dart';
-import 'package:e_commerce/models/Product.dart';
 import 'package:e_commerce/screens/home/components/category.dart';
 import 'package:e_commerce/screens/home/components/discount_banner.dart';
 import 'package:e_commerce/screens/home/components/home_header.dart';
 import 'package:e_commerce/screens/home/components/popular_products.dart';
-import 'package:e_commerce/screens/home/components/section_title.dart';
 import 'package:e_commerce/screens/home/components/special_offers.dart';
 import 'package:e_commerce/size_config.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
